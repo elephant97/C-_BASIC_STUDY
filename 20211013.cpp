@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-CTest b; //전역으로 클래스 객채를 생성했을 때
+//CTest b; //전역으로 클래스 객채를 생성했을 때
 
 class CTest
 {
@@ -15,7 +15,24 @@ public:
 
 	~CTest()
 	{
-		cout << "~CTet::CTest()" << endl;
+		cout << "~CTest::CTest()" << endl;
+	}
+
+};
+
+class ATest
+{
+
+public:
+	ATest()
+	{
+		cout << "ATest::ATest()" << endl;
+
+	}
+
+	~ATest()
+	{
+		cout << "~ATest::ATest()" << endl;
 	}
 
 };
@@ -52,21 +69,21 @@ public:
 
 int main()
 {
-	int a = 10;
+	int num = 10;
 	
 	cout << "main() Begin" << endl;
 	CTest a; //지역으로 클래스 객체를 생성했을 시
 	cout << "Before c" << endl;
-	CTest c; //두번째로 클래스 객체를 생성했을 시 생성자와 소멸자의 호출 순서를 알아보기 위함
+	ATest c; //두번째로 클래스 객체를 생성했을 시 생성자와 소멸자의 호출 순서를 알아보기 위함
 	
 	cout << "new" << endl;
 	Test* pData1 = new Test;//동적 객체 형식 멤버 초기화
 	cout << "new array" << endl;
 	Test* pData2 = new Test[3];//동적 객체 배열 형식 멤버 초기화
 
-	Dynamic_test t(a); // 참조자 형식 멤버 초기화 
+	Dynamic_test t(num); // 참조자 형식 멤버 초기화 
 	cout << t.GetData() << endl;
-	a = 20;//참조값 a의 변경
+	num = 20;//참조값 a의 변경
 
 	cout << "main() End" << endl;
 	return 0;
